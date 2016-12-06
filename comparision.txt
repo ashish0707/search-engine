@@ -1,0 +1,121 @@
+
+
+-------------------------------------------------------------------------------------------------------------
+Difference between lucene scoring and our implementation of Vectors Space Cosine Similarity ranking algorithm
+-------------------------------------------------------------------------------------------------------------
+
+1. Lucene scoring uses a combination of the Vector Space Model (VSM) of Information Retrieval
+   and the Boolean model to determine how relevant a given Document is to a User's query.
+   It uses the Boolean model to first narrow down the documents that need to be scored based on the use of boolean logic
+   in the Query specification.
+
+2. Lucene scoring works on Fields and then combines the results to return Documents.
+   This is important because two Documents with the exact same content, but one having the content in two Fields
+   and the other in one Field will return different scores for the same query due to length normalization.
+
+3. Lucene indexer performs stemming and stopping of terms. Hence the total number of terms are reduced which
+   boost the score.
+
+COMPARISION COMMENT :
+---------------------
+
+  The top document for both the implementations is the same. Although the score varies from one implementation
+  to other the rank remains the same for the top document.
+  Lucene as explained above boost the field while indexing.
+
+  For query 1 -> The top three document for both the implementations are the same.
+  Since lucene found a bigram (from query terms) "global warming" in JosephJRomm.txt it boosted the score of
+  that document irrespective of the fact that global, warming, and potential's  tf's are higher in
+  Climatechangemitigation.txt. For the same reason Climate.txt which ranks 5th in 1st implementation is ranked 7th
+  in our implementation.
+
+  For query 2 -> The top document for both the implementations is the same. The documents ranked by lucene appear in lower
+  rank in our implementation as independence is assumed between words in our implementation.
+
+  For query 3 -> Due to the bigram (in query terms) "solar energy", occuring frequently, the document score is boosted and
+  hence the order of the documents is different across the two implementations but when top 15 documents are compared,
+  the documents are the same although with different ranks.
+
+  For query 4 -> All the top 5 documents are the same with doc2 and doc3 ranks reveresed in both implementation.
+  Reason being is no bigrams in query terms were found in document that could potential boost the score.
+  Hence when independence between words is assumed both the implementation give almost similar results.
+
+
+
+--------------------------------------------------
+Top 5 results for query : global warming potential
+--------------------------------------------------
+Results from task1 program :-
+
+1 Q0 Globalwarming.txt                                             1    0.26847544   lucene_simple_analyzer
+1 Q0 Negativecarbondioxideemission.txt                             2    0.26048505   lucene_simple_analyzer
+1 Q0 Listofcountriesbycarbondioxideemissions.txt                   3    0.23668444   lucene_simple_analyzer
+1 Q0 JosephJRomm.txt                                               4    0.21630308   lucene_simple_analyzer
+1 Q0 Climate.txt                                                   5    0.19578435   lucene_simple_analyzer
+
+
+Results from task2 program :-
+1  Q0  Globalwarming.txt                                              1   0.203070 vector_space_without_normalization
+1  Q0  Listofcountriesbycarbondioxideemissions.txt                    2   0.115521 vector_space_without_normalization
+1  Q0  Negativecarbondioxideemission.txt                              3   0.111243 vector_space_without_normalization
+1  Q0  Climatechangemitigation.txt                                    4   0.093064 vector_space_without_normalization
+1  Q0  Bioenergywithcarboncaptureandstorage.txt                       5   0.092596 vector_space_without_normalization
+
+
+--------------------------------------------------
+Top 5 results for query : green power renewable energy
+--------------------------------------------------
+Results from task1 program :-
+
+2 Q0 RenewableEnergyPayments.txt                                   1    0.373895     lucene_simple_analyzer
+2 Q0 RenewableEnergyCertificateUnitedStates.txt                    2    0.35735717   lucene_simple_analyzer
+2 Q0 3Degrees.txt                                                  3    0.33527985   lucene_simple_analyzer
+2 Q0 RenewableenergyinIndia.txt                                    4    0.32738554   lucene_simple_analyzer
+2 Q0 Greenjob.txt                                                  5    0.3055267    lucene_simple_analyzer
+
+
+Results from task2 program :-
+2  Q0  RenewableEnergyPayments.txt                                    1   0.348442 vector_space_without_normalization
+2  Q0  100renewableenergy.txt                                         2   0.334367 vector_space_without_normalization
+2  Q0  Energyconsumption.txt                                          3   0.320832 vector_space_without_normalization
+2  Q0  Sustainableenergy.txt                                          4   0.318513 vector_space_without_normalization
+2  Q0  Renewableenergycommercialization.txt                           5   0.312196 vector_space_without_normalization
+
+--------------------------------------------------
+Top 5 results for query : solar energy california
+--------------------------------------------------
+Results from task1 program :-
+
+3 Q0 SolarEnergyGeneratingSystems.txt                              1    0.3544832    lucene_simple_analyzer
+3 Q0 NevadaSolarOne.txt                                            2    0.33643794   lucene_simple_analyzer
+3 Q0 SolarDecathlon.txt                                            3    0.32557535   lucene_simple_analyzer
+3 Q0 Solarpower.txt                                                4    0.32236394   lucene_simple_analyzer
+3 Q0 RenewableenergyintheUnitedStates.txt                          5    0.30643559   lucene_simple_analyzer
+
+
+Results from task2 program :-
+3  Q0  Solarenergy.txt                                                1   0.489312 vector_space_without_normalization
+3  Q0  Solarpower.txt                                                 2   0.428649 vector_space_without_normalization
+3  Q0  Solarlamp.txt                                                  3   0.408022 vector_space_without_normalization
+3  Q0  MouraPhotovoltaicPowerStation.txt                              4   0.389741 vector_space_without_normalization
+3  Q0  Photovoltaicpowerstation.txt                                   5   0.380904 vector_space_without_normalization
+
+-------------------------------------------------------------------
+Top 5 results for query : light bulb bulbs alternative alternatives
+-------------------------------------------------------------------
+Results from task1 program :-
+
+4 Q0 Phaseoutofincandescentlightbulbs.txt                          1    0.609641     lucene_simple_analyzer
+4 Q0 Energysavinglamp.txt                                          2    0.44015718   lucene_simple_analyzer
+4 Q0 Incandescentlightbulb.txt                                     3    0.3321428    lucene_simple_analyzer
+4 Q0 LEDlamp.txt                                                   4    0.22911987   lucene_simple_analyzer
+4 Q0 Compactfluorescentlamp.txt                                    5    0.21731491   lucene_simple_analyzer
+
+
+Results from task2 program :-
+4  Q0  Phaseoutofincandescentlightbulbs.txt                           1   0.435656 vector_space_without_normalization
+4  Q0  Incandescentlightbulb.txt                                      2   0.260102 vector_space_without_normalization
+4  Q0  LEDlamp.txt                                                    3   0.248570 vector_space_without_normalization
+4  Q0  Energysavinglamp.txt                                           4   0.231621 vector_space_without_normalization
+4  Q0  Compactfluorescentlamp.txt                                     5   0.194987 vector_space_without_normalization
+
