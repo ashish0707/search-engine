@@ -1,4 +1,5 @@
 
+import math
 hello =dict()
 
 hello['vabhai'] = 1
@@ -19,4 +20,5 @@ def getFormatedDockey(docKey):
     return docKey
 
 print getFormatedDockey("ashish")+"."
+print math.log(1000/1510,2)
 

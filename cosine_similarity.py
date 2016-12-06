@@ -13,11 +13,9 @@ class CosineSimilarity:
         def set_matrix_of_doc_by_term(self,matrix_of_doc_by_term):
             self.matrix_of_doc_by_term = matrix_of_doc_by_term
 
-
-        def createMatix(self,corpus):
-
+        def createMatix(self, corpus, no_of_docs):
             for word, v in corpus.items():
-                idf = log(1000/len(v.docTermFreqDict)) + 1  # this calculates idf for word
+                idf = log(no_of_docs/len(v.docTermFreqDict)) + 1  # this calculates idf for word
                 for docId, tf in v.docTermFreqDict.items():
                     if docId not in self.matrix_of_doc_by_term:
                         self.matrix_of_doc_by_term[docId] = Weights()

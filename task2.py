@@ -4,7 +4,7 @@ import collections
 
 import datetime
 
-from Corpus import NGramGenerator
+from Generator import NGramGenerator
 from cosine_similarity import CosineSimilarity
 
 myGenerator = NGramGenerator()
@@ -19,7 +19,7 @@ myGenerator.generateUnigramCorpus()
 
 cs = CosineSimilarity()
 
-cs.createMatix(myGenerator.one_gram_corpus)
+cs.createMatix(myGenerator.one_gram_corpus, myGenerator.total_docs)
 # Input, parse the query and generate weight for each term
 query_word_and_tf = defaultdict(int)
 query_number = 1
@@ -37,9 +37,9 @@ def getFormatedDockey(docKey):
 while True:
 
     # ask user to input query
-    var = raw_input("Please enter query or 'q' to quit: ")
+    var = raw_input("Please enter query or 'q' to quit: ").lower()
     begin = datetime.datetime.now()
-    if var.lower() == "q":
+    if var == "q":
         break
 
     for word in var.split():
