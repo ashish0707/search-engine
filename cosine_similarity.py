@@ -19,20 +19,27 @@ class CosineSimilarity(SimilarityMeasure):
         matrix_of_doc_by_term = dict()
 
         def __init__(self,corpus, no_of_docs,filename_for_run):
-            self.relPath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_cosine_similarity"
+            self.relPath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_task1"
             self.filename_for_run = self.relPath + filename_for_run
             if os.path.isdir(self.relPath):
-                shutil.rmtree(self.relPath)
-            os.mkdir(self.relPath)
-            self.createMatix(corpus,no_of_docs)
+                if os.path.isfile(self.filename_for_run):
+                    os.remove(self.filename_for_run)
+            else:
+                os.mkdir(self.relPath)
+            self.corpus = corpus
+            self.no_of_docs = no_of_docs
+            self.createMatix()
             pass
+
+        def setRunFolder(self,folderPath):
+            self.filename_for_run = folderPath
 
         def set_matrix_of_doc_by_term(self,matrix_of_doc_by_term):
             self.matrix_of_doc_by_term = matrix_of_doc_by_term
 
-        def createMatix(self, corpus, no_of_docs):
-            for word, v in corpus.items():
-                idf = log(no_of_docs/len(v.docTermFreqDict)) + 1  # this calculates idf for word
+        def createMatix(self):
+            for word, v in self.corpus.items():
+                idf = log(self.no_of_docs/len(v.docTermFreqDict)) + 1  # this calculates idf for word
                 for docId, tf in v.docTermFreqDict.items():
                     if docId not in self.matrix_of_doc_by_term:
                         self.matrix_of_doc_by_term[docId] = Weights()

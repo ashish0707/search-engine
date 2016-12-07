@@ -18,19 +18,26 @@ class TfIdfSimilarity(SimilarityMeasure):
 
         matrix_of_doc_by_term = dict()
 
-        def __init__(self,corpus, no_of_docs, relpath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_tf_idf_similarity"):
-            self.relPath = relpath
+        def __init__(self,corpus, no_of_docs,filename_for_run):
+            self.relPath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_task1"
+            self.filename_for_run = self.relPath + filename_for_run
             if os.path.isdir(self.relPath):
-                shutil.rmtree(self.relPath)
+                if os.path.isfile(self.filename_for_run):
+                    os.remove(self.filename_for_run)
+            else:
                 os.mkdir(self.relPath)
             self.corpus = corpus
             self.no_of_docs = no_of_docs
             self.createDoc_TermWeight_Matix()
             pass
 
+        def setRunFolder(self, folderPath):
+            self.filename_for_run = folderPath
+
         def set_matrix_of_doc_by_term(self,matrix_of_doc_by_term):
             self.matrix_of_doc_by_term = matrix_of_doc_by_term
 
+        # creates a document by word and term weight matrix where weight is tf*idf
         def createDoc_TermWeight_Matix(self):
             for word, v in self.corpus.items():
                 idf = log(self.no_of_docs/len(v.docTermFreqDict)) + 1  # this calculates idf for word
@@ -61,8 +68,7 @@ class TfIdfSimilarity(SimilarityMeasure):
             return doc_score
 
 
-        def rank_and_store_documents(self, query, filename ="run_tf_idf_similarity.txt", query_number=0):
-
+        def rank_and_store_documents(self, query, query_number=0):
 
             query_word_and_tf = defaultdict(int)
             for word in query.split():
@@ -76,12 +82,12 @@ class TfIdfSimilarity(SimilarityMeasure):
 
             # save the top 100 files as best match for given query
             rank = 1
-            query_file_name = self.relPath + "/" + filename
-            with open(query_file_name, 'a') as _file_:
+
+            with open(self.filename_for_run, 'a') as _file_:
                 for docKey, score in collections.OrderedDict(sortedDocIds).items():
                     formatedText = "%d  Q0  " % query_number
 
-                    formatedText += self.getFormatedDockey(docKey) + "  %d   %f vector_space_without_normalization" % (
+                    formatedText += self.getFormatedDockey(docKey) + "  %d   %f tf_idf_similarity" % (
                     rank, score)
                     _file_.write(formatedText + "\n")
                     rank += 1

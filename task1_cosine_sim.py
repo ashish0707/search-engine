@@ -10,7 +10,7 @@ myGenerator = NGramGenerator()
 
 myGenerator.generateUnigramCorpus()
 
-comparer = CosineSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task1_cosine_similarity_run.txt")
+comparer = CosineSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs, "/task1_cosine_similarity_run.txt")
 queryProcessor = QueryProcessor()
 querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmProjects/final-project/cacm.query')
 
