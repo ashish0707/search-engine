@@ -61,9 +61,16 @@ class CosineSimilarity(SimilarityMeasure):
 
         def rank_and_store_documents(self, query, query_number):
 
+            print query
             query_word_and_tf = defaultdict(int)
             for word in query.split():
                 query_word_and_tf[word] += 1
+
+            #  Below is the code for considering IDF from unigram index
+            # for word,tf in query_word_and_tf.items():
+            #
+            #     if word in self.corpus:
+            #         query_word_and_tf[word] = tf * (log(self.no_of_docs/len(self.corpus[word].docTermFreqDict)) + 1)
 
             # get each document score for the given query
             doc_and_score_dict = self.calculateSimilarity(query_word_and_tf, len(query_word_and_tf))

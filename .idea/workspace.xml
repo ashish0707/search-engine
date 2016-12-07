@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b759fb-9dce-41e2-8c3b-e2f74d4b9429" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/run_task1/task1_cosine_similarity_run_with_idf_from_doc.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/run_task1/task1_cosine_similarity_run.txt" afterPath="$PROJECT_DIR$/run_task1/task1_cosine_similarity_run_old.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QueryListGenerator.py" afterPath="$PROJECT_DIR$/QueryListGenerator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cosine_similarity.py" afterPath="$PROJECT_DIR$/cosine_similarity.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapping.txt" afterPath="$PROJECT_DIR$/mapping.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tas2_pseudo_releavance.py" afterPath="$PROJECT_DIR$/tas2_pseudo_releavance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task1_cosine_sim.py" afterPath="$PROJECT_DIR$/task1_cosine_sim.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task1_tf_idf.py" afterPath="$PROJECT_DIR$/task1_tf_idf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tf_idf_similarity.py" afterPath="$PROJECT_DIR$/tf_idf_similarity.py" />
     </list>
     <ignored path="HW4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task1_tf_idf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/task1_tf_idf.py">
+      <file leaf-file-name="task1_cosine_sim.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/task1_cosine_sim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -38,41 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tas2_pseudo_releavance.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tas2_pseudo_releavance.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task3_A_tf_idf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/task3_A_tf_idf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tf_idf_similarity.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tf_idf_similarity.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="87" column="83" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="cosine_similarity.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cosine_similarity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="27" column="38" selection-start-line="23" selection-start-column="12" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="475">
+              <caret line="92" column="29" selection-start-line="91" selection-start-column="20" selection-end-line="92" selection-end-column="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -80,21 +55,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimilarityMeasure.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SimilarityMeasure.py">
+      <file leaf-file-name="task1_cosine_similarity_run_with_idf_from_doc.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_task1/task1_cosine_similarity_run_with_idf_from_doc.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="69195">
+              <caret line="4613" column="74" selection-start-line="4613" selection-start-column="70" selection-end-line="4613" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Generator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Generator.py">
+      <file leaf-file-name="QueryListGenerator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QueryListGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="44" column="23" selection-start-line="43" selection-start-column="14" selection-end-line="44" selection-end-column="23" />
+            <state relative-caret-position="214">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -127,14 +102,14 @@
         <option value="$PROJECT_DIR$/temp.py" />
         <option value="$PROJECT_DIR$/task3_B_tf_idf.py" />
         <option value="$PROJECT_DIR$/task3_A_tf_idf.py" />
-        <option value="$PROJECT_DIR$/QueryListGenerator.py" />
         <option value="$PROJECT_DIR$/Generator.py" />
         <option value="$PROJECT_DIR$/SimilarityMeasure.py" />
-        <option value="$PROJECT_DIR$/cosine_similarity.py" />
-        <option value="$PROJECT_DIR$/task1_cosine_sim.py" />
-        <option value="$PROJECT_DIR$/task1_tf_idf.py" />
         <option value="$PROJECT_DIR$/tf_idf_similarity.py" />
         <option value="$PROJECT_DIR$/tas2_pseudo_releavance.py" />
+        <option value="$PROJECT_DIR$/task1_tf_idf.py" />
+        <option value="$PROJECT_DIR$/QueryListGenerator.py" />
+        <option value="$PROJECT_DIR$/task1_cosine_sim.py" />
+        <option value="$PROJECT_DIR$/cosine_similarity.py" />
       </list>
     </option>
   </component>
@@ -230,7 +205,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tas2_pseudo_releavance">
+  <component name="RunManager" selected="Python.task2">
     <configuration default="false" name="task2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -459,10 +434,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tas2_pseudo_releavance" />
-        <item index="1" class="java.lang.String" itemvalue="Python.task1_tf_idf" />
-        <item index="2" class="java.lang.String" itemvalue="Python.task2" />
-        <item index="3" class="java.lang.String" itemvalue="Python.QueryListGenerator" />
+        <item index="0" class="java.lang.String" itemvalue="Python.task2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.QueryListGenerator" />
+        <item index="2" class="java.lang.String" itemvalue="Python.tas2_pseudo_releavance" />
+        <item index="3" class="java.lang.String" itemvalue="Python.task1_tf_idf" />
         <item index="4" class="java.lang.String" itemvalue="Python.cosine_similarity" />
       </list>
     </recent_temporary>
@@ -774,16 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="44" column="23" selection-start-line="43" selection-start-column="14" selection-end-line="44" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cacm.query">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1245">
@@ -792,82 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QueryListGenerator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="31" column="16" selection-start-line="28" selection-start-column="0" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimilarityMeasure.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/task3_A_tf_idf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_task1/task1_cosine_similarity_run.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95609">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/task1_cosine_sim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cosine_similarity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="27" column="38" selection-start-line="23" selection-start-column="12" selection-end-line="27" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_task1/task1_tf_idf_similarity_run.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="6399" column="100" selection-start-line="6399" selection-start-column="100" selection-end-line="6399" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/task1_tf_idf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tf_idf_similarity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="87" column="83" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -880,11 +773,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="74" column="57" selection-start-line="68" selection-start-column="4" selection-end-line="74" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tas2_pseudo_releavance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="1">
+          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task3_A_tf_idf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_task1/task1_cosine_similarity_run_old.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="6400" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task1_tf_idf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="13" selection-start-line="30" selection-start-column="3" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tf_idf_similarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="87" column="83" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_task1/task1_tf_idf_similarity_run.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2925">
+          <caret line="195" column="16" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueryListGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_task1/task1_cosine_similarity_run_with_idf_from_doc.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69195">
+          <caret line="4613" column="74" selection-start-line="4613" selection-start-column="70" selection-end-line="4613" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cosine_similarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="92" column="29" selection-start-line="91" selection-start-column="20" selection-end-line="92" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task1_cosine_sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

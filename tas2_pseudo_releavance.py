@@ -8,6 +8,8 @@ from collections import defaultdict
 
 import collections
 
+import datetime
+
 from Generator import NGramGenerator
 from tf_idf_similarity import TfIdfSimilarity
 from QueryListGenerator import QueryProcessor
@@ -26,6 +28,7 @@ query_word_and_tf = defaultdict(int)
 query_number = 1
 updated_querie_dict=dict()
 
+begin = datetime.datetime.now()
 for query_number, query in querie_dict.items():
 
     word_dict=defaultdict()
@@ -66,6 +69,7 @@ for query_number, query in querie_dict.items():
 
 for query_number, query in querie_dict.items():
     doc_by_tf_dict = tfidf.rank_and_store_documents(query, query_number)
+print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
 
 
 

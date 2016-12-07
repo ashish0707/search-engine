@@ -1,3 +1,4 @@
+import re
 from collections import defaultdict
 
 import collections
@@ -22,8 +23,13 @@ querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmPro
 query_word_and_tf = defaultdict(int)
 query_number = 1
 
+
+counter = 1
 begin = datetime.datetime.now()
 for query_number, query in querie_dict.items():
     comparer.rank_and_store_documents(query, query_number)
+    if counter > 1:
+        break
 print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
+
 
