@@ -14,6 +14,7 @@ from QueryListGenerator import QueryProcessor
 myGenerator = NGramGenerator()
 myGenerator.generateUnigramCorpus()
 comparer = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task1_tf_idf_similarity_run.txt")
+comparer.setRunFolder("/Users/ashishbulchandani/PycharmProjects/final-project/run_task1")
 queryProcessor = QueryProcessor()
 querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmProjects/final-project/cacm.query')
 

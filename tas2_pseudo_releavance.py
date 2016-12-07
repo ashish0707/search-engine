@@ -16,7 +16,8 @@ from QueryListGenerator import QueryProcessor
 
 myGenerator = NGramGenerator()
 myGenerator.generateUnigramCorpus()
-tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs)
+tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
+tfidf.setRunFolder('/Users/ashishbulchandani/PycharmProjects/final-project/run_task2')
 queryProcessor = QueryProcessor()
 querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmProjects/final-project/cacm.query')
 
@@ -25,7 +26,7 @@ query_word_and_tf = defaultdict(int)
 query_number = 1
 updated_querie_dict=dict()
 
-for query_number, query in querie_dict:
+for query_number, query in querie_dict.items():
 
     word_dict=defaultdict()
     doc_term_matrix = tfidf.createDoc_TermFrequency_Matix()
@@ -52,18 +53,18 @@ for query_number, query in querie_dict:
 
     updated_query=" "
     counter=1
-    for k in word_dict_sorted.keys():
+    for k in collections.OrderedDict(word_dict_sorted).keys():
 
 
         if counter >10:
             break
         # if not in sort list
         updated_query += k + " "
-        counter +=1
+        counter += 1
 
     updated_querie_dict[query_number]= query + updated_query
 
-for query_number, query in querie_dict:
+for query_number, query in querie_dict.items():
     doc_by_tf_dict = tfidf.rank_and_store_documents(query, query_number)
 
 

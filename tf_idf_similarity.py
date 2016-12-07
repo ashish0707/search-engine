@@ -18,21 +18,22 @@ class TfIdfSimilarity(SimilarityMeasure):
 
         matrix_of_doc_by_term = dict()
 
-        def __init__(self,corpus, no_of_docs,filename_for_run):
-            self.relPath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_task1"
-            self.filename_for_run = self.relPath + filename_for_run
+        def __init__(self, corpus, no_of_docs,filename_for_run):
+            self.filename_for_run = filename_for_run
+            self.corpus = corpus
+            self.no_of_docs = no_of_docs
+            self.createDoc_TermWeight_Matix()
+            self.relPath = ""
+            pass
+
+        def setRunFolder(self, folderPath):
+            self.relPath = folderPath
+            self.filename_for_run = self.relPath + self.filename_for_run
             if os.path.isdir(self.relPath):
                 if os.path.isfile(self.filename_for_run):
                     os.remove(self.filename_for_run)
             else:
                 os.mkdir(self.relPath)
-            self.corpus = corpus
-            self.no_of_docs = no_of_docs
-            self.createDoc_TermWeight_Matix()
-            pass
-
-        def setRunFolder(self, folderPath):
-            self.filename_for_run = folderPath
 
         def set_matrix_of_doc_by_term(self,matrix_of_doc_by_term):
             self.matrix_of_doc_by_term = matrix_of_doc_by_term
