@@ -20,5 +20,20 @@ def getFormatedDockey(docKey):
     return docKey
 
 print getFormatedDockey("ashish")+"."
-print math.log(1000/1510,2)
 
+# Interface Score :
+#  method calculateScore()
+#
+# Class A implements Score:
+#  method calculateScore():
+#         return 1
+#
+# Class B implements Score:
+#  method calculateScore():
+#         return 2
+#
+# Score = new A()
+# Score.calculateScore()
+#
+# Score = new B()
+# Score.calculateScore()

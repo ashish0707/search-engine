@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 from collections import defaultdict
 
 import datetime
@@ -15,12 +16,13 @@ class NGramGenerator:
     one_gram_corpus = dict()
     myParser = Parser()
     docId = 1
-    def generateUnigramCorpus(self, folder="cacm"):
+    def generateUnigramCorpus(self, folder="cacm",cleaned_file_path="cleaned_files/"):
 
         relpath = "/Users/ashishbulchandani/PycharmProjects/final-project/cacm/" #path for raw files
-        cleaned_file_path = "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files/"  #path to store cleaned files
-
-        print "Generating corpus... will take around 25 secs. please be patient."
+        cleaned_file_path = "/Users/ashishbulchandani/PycharmProjects/final-project/" + cleaned_file_path  #path to store cleaned files
+        shutil.rmtree(cleaned_file_path)                                                             #remove previous cleaned files
+        os.mkdir("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")            # build a cleaned_files folder again
+        print "Generating corpus... will take around 15 secs. please be patient."
 
         begin = datetime.datetime.now()
         for filename in os.listdir(folder):
@@ -32,13 +34,15 @@ class NGramGenerator:
 
                 for word in cleaned_body_text.split():
                         cleaned_word = self.clean_word(word)                 # cleans the word using regex
-                        self.add_to_one_gram_corpus(cleaned_word, filename)  # adds unique words to the unigram corpus
                         _file_.write(cleaned_word.encode('utf8') + " ")      # write the cleaned word to the file
+                        self.add_to_one_gram_corpus(cleaned_word, filename)  # adds unique words to the unigram corpus
 
             _file_.close()
 
             self.saveMapping(self.docId, filename)
             self.docId += 1
+            # if self.docId>100:
+            #     break
 
         print "Time to generate Unigram Corpus => " + str(datetime.datetime.now() - begin)
         print "Lenght of one gram corpus is : -> %d" % len(self.one_gram_corpus)
