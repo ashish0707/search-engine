@@ -1,0 +1,1 @@
+a simplifi recombin scheme for the fibonacci buddi system a simplifi recombin scheme for the fibonacci buddi system which requir neither tabl nor repetit calcul and us onli two addit bit per buffer is present cacm june 1975 cranston b thoma r fibonacci buddi system dynam storag alloc buddi system 

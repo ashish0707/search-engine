@@ -1,0 +1,1 @@
+gamma function with arbitrari precis algorithm 309 s14 cacm august 

@@ -1,0 +1,1 @@
+simplex method procedur emploi lu decomposit algorithm 350 h cacm mai 1969 bartel r h golub g h simplex method linear program lu decomposit round off error comput stabil 5 

@@ -1,0 +1,1 @@
+newton interpol with forward divid differ algorithm 169 cacm april 

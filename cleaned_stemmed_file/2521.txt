@@ -1,0 +1,1 @@
+ten subroutin for the manipul of chebyshev seri c1 algorithm a446 cacm april 1973 brouck r chebyshev seri differenti integr curv fit approxim neg power 5 12 5 13 5 

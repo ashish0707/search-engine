@@ -17,7 +17,7 @@ class NGramGenerator:
     myParser = Parser()
     docId = 1
 
-    def generateUnigramCorpus(self, folder="cacm/", cleaned_file_path="cleaned_files/"):
+    def generateUnigramCorpus(self, folder, cleaned_file_path):
 
         self.generate_cleaned_files(folder, cleaned_file_path)
         begin = datetime.datetime.now()
@@ -38,18 +38,20 @@ class NGramGenerator:
         self.total_docs = self.docId - 1
         print "Total Documents :=> %d" % self.total_docs
 
-    def generate_cleaned_files(self, folder="cacm/", cleaned_file_path="cleaned_files/"):
+    def generate_cleaned_files(self, folder, cleaned_file_path):
 
-         if not os.path.exists(folder):
+         if not os.path.exists(cleaned_file_path):
             print "Generating cleaned files... will take around 15 secs. please be patient."
-            os.mkdir(cleaned_file_path[:-1])
+            os.mkdir(cleaned_file_path)
             for filename in os.listdir(folder):
-                raw_body_text = self.myParser.parse_document(folder+filename)
+                abs_fileName = os.path.join(folder, filename)
+                raw_body_text = self.myParser.parse_document(abs_fileName)
                 for line in raw_body_text.split("\n"):
                     if not re.match(r'\d+', line.strip("\n").strip(" ")):
                         cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', line)  # apply regex on text extracted from html
                         cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
-                        with open(cleaned_file_path + cfilename, 'a') as _file_:
+                        abs_fileName = os.path.join(cleaned_file_path, cfilename)
+                        with open(abs_fileName, 'a') as _file_:
 
                             for word in cleaned_body_text.split():
                                 cleaned_word = self.clean_word(word)  # cleans the word using regex
@@ -108,4 +110,3 @@ class Posting:
 # ng = NGramGenerator()
 # ng.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
 #                          "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
-# ng.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/")

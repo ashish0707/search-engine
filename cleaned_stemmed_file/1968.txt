@@ -1,0 +1,1 @@
+eigenvalu and eigenvector of a real gener matrix algorithm 343 f1 cacm novemb 1970 knight w mersereau w eigenvalu eigenvector latent root household s method qr algorithm invers iter 5 

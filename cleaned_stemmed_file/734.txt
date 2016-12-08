@@ -1,0 +1,1 @@
+newton interpol with backward divid differ algorithm 168 cacm septemb 

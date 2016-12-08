@@ -1,0 +1,1 @@
+fortran 77 there is a new standard fortran the offici titl is american nation standard program languag fortran x3 9 the fortran standard design x3 9 1966 thi paper describ mani of the featur of fortran 77 and also provid some inform about how and why the standard wa develop cacm octob 1978 brainerd w none none ca781001 dh januari 

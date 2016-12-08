@@ -17,7 +17,10 @@ from QueryListGenerator import QueryProcessor
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus()
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
+
+
 tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
 tfidf.setRunFolder('/Users/ashishbulchandani/PycharmProjects/final-project/run_task2')
 queryProcessor = QueryProcessor()

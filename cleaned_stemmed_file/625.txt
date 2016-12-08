@@ -1,0 +1,1 @@
+reciproc gamma function of real argument algorithm 80 cacm march pm 625 5 625 625 5 625 625 5 625 

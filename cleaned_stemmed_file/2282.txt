@@ -1,0 +1,1 @@
+a comparison of float point summat method cacm septemb 1972 gregori j summat float point addit truncat error error propag 

@@ -11,7 +11,8 @@ from QueryListGenerator import QueryProcessor
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus()
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
 
 # filter stop words from unigram corpus
 for line in open('/Users/ashishbulchandani/PycharmProjects/final-project/common_words.txt'):

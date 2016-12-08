@@ -1,0 +1,1 @@
+an algol procedur for the fast fourier transform with arbitrari factor algorithm 339 c6 cacm novemb 1968 singleton r c fast fourier transform multivari fourier transform fourier seri harmon analysi spectral analysi orthogon polynomi orthogon transform virtual core memori permut februari 21 1978 2 26 pm 1668 4 1668 1668 

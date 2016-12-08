@@ -32,18 +32,25 @@ if not os.path.exists(folder):
             #open new file
 
             fileHandle = open(folder + "/" + str(query_number) + ".html", 'w+')
+
             fileHandle.write("<html>\n<pre>\n")
             query_number += 1
 
         else:
-            fileHandle.write(line)
+            lineWithSpaces = line
+            line = line.replace("\n","").replace(" ","")
+            if not line.isdigit():
+                fileHandle.write(lineWithSpaces)
+            else:
+                print lineWithSpaces
 
 else:
     print "directory available"
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus("cacm_stem/", "cleaned_stemmed_file/")
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm_stem",
+                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stemmed_file")
 
 
 comparer = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task3B_tf_idf_stemmed_run.txt")
