@@ -61,7 +61,6 @@ class CosineSimilarity(SimilarityMeasure):
 
         def rank_and_store_documents(self, query, query_number):
 
-            print query
             query_word_and_tf = defaultdict(int)
             for word in query.split():
                 query_word_and_tf[word] += 1

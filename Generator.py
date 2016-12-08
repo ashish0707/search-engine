@@ -16,39 +16,49 @@ class NGramGenerator:
     one_gram_corpus = dict()
     myParser = Parser()
     docId = 1
-    def generateUnigramCorpus(self, folder="cacm/",cleaned_file_path="cleaned_files/"):
 
-        relpath = "/Users/ashishbulchandani/PycharmProjects/final-project/" + folder                                #path for raw files
-        cleaned_file_path = "/Users/ashishbulchandani/PycharmProjects/final-project/" + cleaned_file_path  #path to store cleaned files
-        shutil.rmtree(cleaned_file_path[:-1])                                                                 #remove previous cleaned files
-        os.mkdir(cleaned_file_path[:-1])                        # build a cleaned_files folder again. -1 is to remove the slash in end.
+    def generateUnigramCorpus(self, folder="cacm/", cleaned_file_path="cleaned_files/"):
 
-        print "Generating corpus... will take around 15 secs. please be patient."
-
+        self.generate_cleaned_files(folder, cleaned_file_path)
         begin = datetime.datetime.now()
-        for filename in os.listdir(folder):
-            raw_body_text = self.myParser.parse_document(relpath + filename)
-            cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', raw_body_text)  #apply regex on text extracted from html
+        for filename in os.listdir(cleaned_file_path):
 
-            cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
-            with open(cleaned_file_path + cfilename, 'a') as _file_:
-
-                for word in cleaned_body_text.split():
-                        cleaned_word = self.clean_word(word)                 # cleans the word using regex
-                        _file_.write(cleaned_word.encode('utf8') + " ")      # write the cleaned word to the file
-                        self.add_to_one_gram_corpus(cleaned_word, cfilename)  # adds unique words to the unigram corpus
-
-            _file_.close()
-
-            self.saveMapping(self.docId, filename)
-            self.docId += 1
-            # if self.docId>100:
+            # if self.docId > 1:
             #     break
+
+            abs_fileName = os.path.join(cleaned_file_path, filename)
+            for word in open(abs_fileName).read().split():
+                self.add_to_one_gram_corpus(word, filename[:-4])  # adds unique words to the unigram corpus
+
+
+            self.docId += 1
 
         print "Time to generate Unigram Corpus => " + str(datetime.datetime.now() - begin)
         print "Lenght of one gram corpus is : -> %d" % len(self.one_gram_corpus)
-        print  self.docId
-        self.total_docs = self.docId - 1  #last document number minus 1 will be the total number of files in being indexed
+        self.total_docs = self.docId - 1
+        print "Total Documents :=> %d" % self.total_docs
+
+    def generate_cleaned_files(self, folder="cacm/", cleaned_file_path="cleaned_files/"):
+
+         if not os.path.exists(folder):
+            print "Generating cleaned files... will take around 15 secs. please be patient."
+            os.mkdir(cleaned_file_path[:-1])
+            for filename in os.listdir(folder):
+                raw_body_text = self.myParser.parse_document(folder+filename)
+                for line in raw_body_text.split("\n"):
+                    if not re.match(r'\d+', line.strip("\n").strip(" ")):
+                        cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', line)  # apply regex on text extracted from html
+                        cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
+                        with open(cleaned_file_path + cfilename, 'a') as _file_:
+
+                            for word in cleaned_body_text.split():
+                                cleaned_word = self.clean_word(word)  # cleans the word using regex
+                                _file_.write(cleaned_word.encode('utf8') + " ")  # write the cleaned word to the file
+
+                        _file_.close()
+         else:
+             print "cleaned files exist"
+
 
     # GIVEN   : a cleaned word and a documentId which is an integer
     # RETURNS : adds the word to one gram corpus.
@@ -94,6 +104,8 @@ class Posting:
         if self.total > posting.total:
             return 1
 
-#
+
 # ng = NGramGenerator()
-# ng.generateUnigramCorpus()
+# ng.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+#                          "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
+# ng.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/")

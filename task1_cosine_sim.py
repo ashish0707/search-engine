@@ -8,7 +8,8 @@ from cosine_similarity import CosineSimilarity
 
 myGenerator = NGramGenerator()
 
-myGenerator.generateUnigramCorpus()
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
 
 comparer = CosineSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs, "/task1_cosine_similarity_run.txt")
 queryProcessor = QueryProcessor()
