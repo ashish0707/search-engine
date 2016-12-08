@@ -1,5 +1,7 @@
 
 import math
+import re
+
 hello =dict()
 
 hello['vabhai'] = 1
@@ -19,7 +21,15 @@ def getFormatedDockey(docKey):
     docKey += space
     return docKey
 
-print getFormatedDockey("ashish")+"."
+match = re.match(r'# \d+', "# 123")
+if match:
+    print "match found"
+else:
+    print "match not found"
+#
+# stop_word_list = [line.rstrip('\n') for line in open('/Users/ashishbulchandani/PycharmProjects/final-project/common_words')]
+# for word in stop_word_list:
+#     print word
 
 # Interface Score :
 #  method calculateScore()

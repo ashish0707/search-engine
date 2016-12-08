@@ -16,12 +16,13 @@ class NGramGenerator:
     one_gram_corpus = dict()
     myParser = Parser()
     docId = 1
-    def generateUnigramCorpus(self, folder="cacm",cleaned_file_path="cleaned_files/"):
+    def generateUnigramCorpus(self, folder="cacm/",cleaned_file_path="cleaned_files/"):
 
-        relpath = "/Users/ashishbulchandani/PycharmProjects/final-project/cacm/" #path for raw files
+        relpath = "/Users/ashishbulchandani/PycharmProjects/final-project/" + folder                                #path for raw files
         cleaned_file_path = "/Users/ashishbulchandani/PycharmProjects/final-project/" + cleaned_file_path  #path to store cleaned files
-        shutil.rmtree(cleaned_file_path)                                                             #remove previous cleaned files
-        os.mkdir("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")            # build a cleaned_files folder again
+        shutil.rmtree(cleaned_file_path[:-1])                                                                 #remove previous cleaned files
+        os.mkdir(cleaned_file_path[:-1])                        # build a cleaned_files folder again. -1 is to remove the slash in end.
+
         print "Generating corpus... will take around 15 secs. please be patient."
 
         begin = datetime.datetime.now()
@@ -35,7 +36,7 @@ class NGramGenerator:
                 for word in cleaned_body_text.split():
                         cleaned_word = self.clean_word(word)                 # cleans the word using regex
                         _file_.write(cleaned_word.encode('utf8') + " ")      # write the cleaned word to the file
-                        self.add_to_one_gram_corpus(cleaned_word, filename)  # adds unique words to the unigram corpus
+                        self.add_to_one_gram_corpus(cleaned_word, cfilename)  # adds unique words to the unigram corpus
 
             _file_.close()
 
