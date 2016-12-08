@@ -7,7 +7,7 @@ class Effectiveness:
 
     dumm_dict_scores=dict()
 
-    def relevant_doc(self, path = "/Users/ashishbulchandani/PycharmProjects/final-project/cacm.rel.txt"):
+    def relevant_doc(self, path="/Users/ashishbulchandani/PycharmProjects/final-project/cacm.rel.txt"):
             n = 0
 
             my_file = open(path, "r") # path of relavent file

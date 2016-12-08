@@ -17,9 +17,8 @@ class NGramGenerator:
     myParser = Parser()
     docId = 1
 
-    def generateUnigramCorpus(self, folder, cleaned_file_path):
+    def generateUnigramCorpus(self, cleaned_file_path):
 
-        self.generate_cleaned_files(folder, cleaned_file_path)
         begin = datetime.datetime.now()
         for filename in os.listdir(cleaned_file_path):
 
@@ -47,8 +46,10 @@ class NGramGenerator:
                 abs_fileName = os.path.join(folder, filename)
                 raw_body_text = self.myParser.parse_document(abs_fileName)
                 for line in raw_body_text.split("\n"):
-                    if not re.match(r'\d+', line.strip("\n").strip(" ")):
-                        cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', line)  # apply regex on text extracted from html
+                    previous_line = line
+                    line = line.replace("\n", "").replace(" ", "").replace("\t", "")
+                    if not line.isdigit():
+                        cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', previous_line)  # apply regex on text extracted from html
                         cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
                         abs_fileName = os.path.join(cleaned_file_path, cfilename)
                         with open(abs_fileName, 'a') as _file_:
@@ -58,6 +59,38 @@ class NGramGenerator:
                                 _file_.write(cleaned_word.encode('utf8') + " ")  # write the cleaned word to the file
 
                         _file_.close()
+         else:
+             print "cleaned files exist"
+
+    def generate_stopped_cleaned_files(self, folder, cleaned_file_path, stop_word_file_path):
+
+         if not os.path.exists(cleaned_file_path):
+             print "Generating cleaned files... will take around 15 secs. please be patient."
+
+             dict_of_stop_word = dict()
+             for line in open(stop_word_file_path):
+                 dict_of_stop_word[line.replace("\n","")] = 1
+
+             os.mkdir(cleaned_file_path)
+             for filename in os.listdir(folder):
+                 abs_fileName = os.path.join(folder, filename)
+                 raw_body_text = self.myParser.parse_document(abs_fileName)
+                 for line in raw_body_text.split("\n"):
+                      previous_line = line
+                      line = line.replace(" ", "").replace("\t", "").replace("\n","")
+                      if not line.isdigit():
+                         cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', previous_line)  # apply regex on text extracted from html
+                         cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
+                         abs_fileName = os.path.join(cleaned_file_path, cfilename)
+                         with open(abs_fileName, 'a') as _file_:
+                            for word in cleaned_body_text.split():
+                                cleaned_word = self.clean_word(word)  # cleans the word using regex
+                                if not cleaned_word in dict_of_stop_word:
+                                     _file_.write(cleaned_word.encode('utf8') + " ")  # write the cleaned word to the file
+
+                            _file_.close()
+                      else:
+                          print line
          else:
              print "cleaned files exist"
 

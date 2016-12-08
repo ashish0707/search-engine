@@ -15,13 +15,16 @@ from Generator import NGramGenerator
 from QueryListGenerator import QueryProcessor
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus()
-# index=myGenerator.one_gram_corpus
+myGenerator.generate_stopped_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+                                   "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stopped_files",
+                                    '/Users/ashishbulchandani/PycharmProjects/final-project/common_words.txt')
+
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stopped_files")
 
 queryProcessor = QueryProcessor()
 querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmProjects/final-project/cacm.query')
-folder = '/Users/ashishbulchandani/PycharmProjects/final-project/run_task1'
-fileName_bm25_run = folder + "/task1_bm25_run.txt"
+folder = '/Users/ashishbulchandani/PycharmProjects/final-project/run_task3'
+fileName_bm25_run = folder + "/task3A_bm25_stopped_run.txt"
 posting_list=dict()
 rankBM25Dict=dict()
 doc_file_lenght = dict()
@@ -30,13 +33,13 @@ doc_file_lenght = dict()
 def calculate_avgDL():
     counter_total = 0
     # path where 1000 files containing tokens for each wiki article is placed
-    save_path = '/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files'
+    save_path = '/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stopped_files'
 
     for file in os.listdir(save_path):
         completeName = os.path.join(save_path, file)
         listofwords = open(completeName).read().split()
         counter_total += len(listofwords)
-        doc_file_lenght[file] = len(listofwords)
+        doc_file_lenght[file[:-4]] = len(listofwords)
     return counter_total
 
 def rank_bm25():

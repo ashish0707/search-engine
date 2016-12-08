@@ -102,7 +102,7 @@ class TfIdfSimilarity(SimilarityMeasure):
 
         def getFormatedDockey(self, docKey):
             space = " "
-            for i in range(60 - len(docKey)):
+            for i in range(15 - len(docKey)):
                 space += " "
             docKey += space
             return docKey

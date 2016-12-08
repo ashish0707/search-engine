@@ -6,15 +6,15 @@ import collections
 import datetime
 
 from Generator import NGramGenerator
-from cosine_similarity import CosineSimilarity
 from tf_idf_similarity import TfIdfSimilarity
 from QueryListGenerator import QueryProcessor
 from evaluation import Effectiveness
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+myGenerator.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
                                   "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
 
 comparer = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task1_tf_idf_similarity_run.txt")
 comparer.setRunFolder("/Users/ashishbulchandani/PycharmProjects/final-project/run_task1")

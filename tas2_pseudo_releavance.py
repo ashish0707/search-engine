@@ -17,8 +17,10 @@ from QueryListGenerator import QueryProcessor
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
-                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
+myGenerator.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/cacm",
+                                           "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
+
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
 
 
 tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
@@ -70,8 +72,11 @@ for query_number, query in querie_dict.items():
 
     updated_querie_dict[query_number]= query + updated_query
 
-for query_number, query in querie_dict.items():
-    doc_by_tf_dict = tfidf.rank_and_store_documents(query, query_number)
+
+tfidf1 = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
+tfidf1.setRunFolder('/Users/ashishbulchandani/PycharmProjects/final-project/run_task2')
+for query_number, query in updated_querie_dict.items():
+    doc_by_tf_dict = tfidf1.rank_and_store_documents(query, query_number)
 print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
 
 
