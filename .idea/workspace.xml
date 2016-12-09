@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b759fb-9dce-41e2-8c3b-e2f74d4b9429" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/task2/task2_pseudo_releavance_bm25.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/task2/task2_pseudo_releavance_no_stop_bm25.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/task3/task3A_BM_25.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/task3/task3_BM_25_with_stopping.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
     </list>
     <ignored path="HW4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readme.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+            <state relative-caret-position="1170">
+              <caret line="78" column="114" selection-start-line="78" selection-start-column="114" selection-end-line="78" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -116,7 +113,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task3_B_tf_idf.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task3_B_tf_idf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task3/task3_B_tf_idf.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="562">
@@ -183,8 +180,8 @@
         <option value="$PROJECT_DIR$/task3/task3_BM_25_with_stopping.py" />
         <option value="$PROJECT_DIR$/task_phase2/tas2_pseudo_releavance_with_stopping.py" />
         <option value="$PROJECT_DIR$/task2/tas2_pseudo_releavance.py" />
-        <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/task3/task3_B_tf_idf.py" />
+        <option value="$PROJECT_DIR$/readme.txt" />
       </list>
     </option>
   </component>
@@ -638,9 +635,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23819591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23819591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1046,14 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_phase2/phase2_psuedo_rel_tf_idf_stopping_run.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1106,6 +1095,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="562">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" column="114" selection-start-line="78" selection-start-column="114" selection-end-line="78" selection-end-column="114" />
           <folding />
         </state>
       </provider>

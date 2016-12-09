@@ -76,6 +76,6 @@ JAVA PART
     For task1 Lucene run - there is a seperate folder named 'Lucene' under main search-engine folder.
     It basically contains code for task1 lucene run, its corresponding output and evalutation results.
 
-    For Snippet generation :
+    For Snippet generation : The code is implemented in java. More details is in readme folder within JAVA folder.
 
 
