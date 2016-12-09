@@ -50,7 +50,7 @@ class NGramGenerator:
                     line = line.replace("\n", "").replace(" ", "").replace("\t", "")
                     if not line.isdigit():
                         cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', previous_line)  # apply regex on text extracted from html
-                        cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
+                        cfilename = filename[:-5] + ".txt"
                         abs_fileName = os.path.join(cleaned_file_path, cfilename)
                         with open(abs_fileName, 'a') as _file_:
 
@@ -80,7 +80,7 @@ class NGramGenerator:
                       line = line.replace(" ", "").replace("\t", "").replace("\n","")
                       if not line.isdigit():
                          cleaned_body_text = re.sub(r'[^\,\.\-\w\s]', '', previous_line)  # apply regex on text extracted from html
-                         cfilename = re.sub(r'[^\w\d]', '', filename)[:-4] + ".txt"
+                         cfilename = filename[:-5] + ".txt"
                          abs_fileName = os.path.join(cleaned_file_path, cfilename)
                          with open(abs_fileName, 'a') as _file_:
                             for word in cleaned_body_text.split():

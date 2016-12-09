@@ -11,6 +11,7 @@ import collections
 import datetime
 
 from Generator import NGramGenerator
+from evaluation import Effectiveness
 from tf_idf_similarity import TfIdfSimilarity
 from QueryListGenerator import QueryProcessor
 
@@ -23,7 +24,7 @@ myGenerator.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/fin
 myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_files")
 
 
-tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
+tfidf = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/phase2_psuedo_rel_tf_idf_stopping_run.txt")
 tfidf.setRunFolder('/Users/ashishbulchandani/PycharmProjects/final-project/run_task2')
 queryProcessor = QueryProcessor()
 querie_dict = queryProcessor.get_query_list('/Users/ashishbulchandani/PycharmProjects/final-project/cacm.query')
@@ -34,6 +35,11 @@ query_number = 1
 updated_querie_dict=dict()
 
 begin = datetime.datetime.now()
+
+dict_of_stop_word = dict()
+for line in open('/Users/ashishbulchandani/PycharmProjects/final-project/common_words.txt'):
+    dict_of_stop_word[line.replace("\n", "")] = 1
+
 for query_number, query in querie_dict.items():
 
     word_dict=defaultdict()
@@ -63,20 +69,35 @@ for query_number, query in querie_dict.items():
     counter=1
     for k in collections.OrderedDict(word_dict_sorted).keys():
 
+        if k not in dict_of_stop_word:
+            if counter > 10:
+                # print updated_query
+                break
+            # if not in sort list
 
-        if counter >10:
-            break
-        # if not in sort list
-        updated_query += k + " "
-        counter += 1
+
+            updated_query += k + " "
+            counter += 1
 
     updated_querie_dict[query_number]= query + updated_query
 
 
+eval = Effectiveness()
+eval.setFilePaths("/Users/ashishbulchandani/PycharmProjects/final-project/run_phase2/evalutation_query_exp_tf_idf/Map.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_phase2/evalutation_query_exp_tf_idf/Mrr.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_phase2/evalutation_query_exp_tf_idf/p_at_k.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_phase2/evalutation_query_exp_tf_idf/table_precision_recal.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/cacm.rel.txt")
+
+
 tfidf1 = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task2_psuedo_rel_run.txt")
 tfidf1.setRunFolder('/Users/ashishbulchandani/PycharmProjects/final-project/run_task2')
+
 for query_number, query in updated_querie_dict.items():
-    doc_by_tf_dict = tfidf1.rank_and_store_documents(query, query_number)
+    tfidf1.rank_and_store_documents(query, query_number)
+    eval.start_prog(tfidf1.sortedDocIds, query_number)
+
+print eval.printResults()
 print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
 
 

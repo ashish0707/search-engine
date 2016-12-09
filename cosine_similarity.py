@@ -17,6 +17,7 @@ class CosineSimilarity(SimilarityMeasure):
 
 
         matrix_of_doc_by_term = dict()
+        sortedDocIds = []
 
         def __init__(self,corpus, no_of_docs,filename_for_run):
             self.relPath = "/Users/ashishbulchandani/PycharmProjects/final-project/run_task1"
@@ -75,13 +76,13 @@ class CosineSimilarity(SimilarityMeasure):
             doc_and_score_dict = self.calculateSimilarity(query_word_and_tf, len(query_word_and_tf))
 
             # sort the documents in descending order of their score
-            sortedDocIds = sorted(doc_and_score_dict.items(), key=lambda t: t[1], reverse=True)
+            self.sortedDocIds = sorted(doc_and_score_dict.items(), key=lambda t: t[1], reverse=True)
 
             # save the top 100 files as best match for given query
             rank = 1
 
             with open(self.filename_for_run, 'a') as _file_:
-                for docKey, score in collections.OrderedDict(sortedDocIds).items():
+                for docKey, score in collections.OrderedDict(self.sortedDocIds).items():
                     formatedText = "%d  Q0  " % query_number
 
                     formatedText += self.getFormatedDockey(docKey) + "  %d   %f cosine_similarity" % (

@@ -7,6 +7,8 @@ import math
 
 class BM25:
 
+    matrix_of_doc_by_term = dict()
+    sorted_rank_list = []
 
     def __init__(self, unigramIndex,path_to_relavent_doc,fileName_bm25_run):
         self.k1 = 1.2
@@ -19,6 +21,7 @@ class BM25:
         self.rankBM25Dict = dict()
         self.doc_file_lenght = dict()
         self.path_to_relavent_doc = path_to_relavent_doc
+
         pass
 
 
@@ -35,7 +38,7 @@ class BM25:
         return counter_total
 
 
-    def rank_and_StoreDocument(self, query_number, query ):
+    def rank_and_StoreDocument(self, query_number, query):
 
         sorted_rank_list = self.calculateSimilarity(query_number, query)
         rank = 1
@@ -53,12 +56,13 @@ class BM25:
 
     def calculateSimilarity(self,query_number, query):
 
-        query_word_and_tf = defaultdict(int)
+
         avdl=self.calculate_avgDL()/3204
         relevant_docs=self.relevant_doc(self.path_to_relavent_doc)
 
         R = len(relevant_docs[query_number])
 
+        query_word_and_tf = defaultdict(int)
         for word in query.split():
             query_word_and_tf[word] += 1
 
@@ -82,8 +86,8 @@ class BM25:
                     else:
                         self.rankBM25Dict[doc] = self.score_BM25(n, tf, qf, r, R, 3204, dl, avdl)
 
-        sorted_rank_list = sorted(self.rankBM25Dict.items(), key=lambda t: t[1], reverse=True)
-        return sorted_rank_list
+        self.sorted_rank_list = sorted(self.rankBM25Dict.items(), key=lambda t: t[1], reverse=True)
+        return self.sorted_rank_list
 
     def score_BM25(self, n, tf, qf, r,R, N, dl, avdl):
         K = self.compute_K(dl, avdl)
@@ -103,4 +107,27 @@ class BM25:
             query=line.split()
             self.relevant[query[0]].append(query[2])
         return self.relevant
+
+    def createDoc_TermFrequency_Matix(self):
+        for word, v in self.unigramIndex.items():
+            for docId, tf in v.docTermFreqDict.items():
+                if docId not in self.matrix_of_doc_by_term:
+                    self.matrix_of_doc_by_term[docId] = Weights()
+                self.matrix_of_doc_by_term[docId].add_word_and_weight(word, tf, 1)  # in this case weight is just tf
+        return self.matrix_of_doc_by_term
+
+class Weights:
+
+    def __init__(self):
+        self.doc_length = 0
+        self.word_and_weight_dict = dict()
+        pass
+
+    def add_word_and_weight(self, word, tf, idf):
+        weight = tf*idf
+        self.word_and_weight_dict[word] = weight
+        # t = word + " ==> %f" %weight
+        # print t
+        self.doc_length += (weight ** 2)
+
 

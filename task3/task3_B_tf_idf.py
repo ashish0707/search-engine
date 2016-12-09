@@ -8,6 +8,7 @@ import datetime
 
 from Generator import NGramGenerator
 from cosine_similarity import CosineSimilarity
+from evaluation import Effectiveness
 from tf_idf_similarity import TfIdfSimilarity
 from QueryListGenerator import QueryProcessor
 
@@ -49,8 +50,9 @@ else:
 
 
 myGenerator = NGramGenerator()
-myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cacm_stem",
-                                  "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stemmed_file")
+myGenerator.generate_cleaned_files("/Users/ashishbulchandani/PycharmProjects/final-project/cacm_stem",
+                                   "/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stemmed_file")
+myGenerator.generateUnigramCorpus("/Users/ashishbulchandani/PycharmProjects/final-project/cleaned_stemmed_file")
 
 
 comparer = TfIdfSimilarity(myGenerator.one_gram_corpus, myGenerator.total_docs,"/task3B_tf_idf_stemmed_run.txt")
@@ -63,12 +65,19 @@ for line in open('/Users/ashishbulchandani/PycharmProjects/final-project/cacm_st
     query_dict[query_number] = queryProcessor.generate_clean_query(line)
     query_number += 1
 
-# Input, parse the query and generate weight for each term
-query_word_and_tf = defaultdict(int)
-query_number = 1
 
+eval = Effectiveness()
+eval.setFilePaths("/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/Map.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/Mrr.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/p_at_k.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/table_precision_recal.txt",
+                  "/Users/ashishbulchandani/PycharmProjects/final-project/cacm.rel.txt")
 
+begin = datetime.datetime.now()
 for query_number, query in query_dict.items():
-    print query
     comparer.rank_and_store_documents(query, query_number)
+    eval.start_prog(comparer.sortedDocIds, query_number)
+
+print eval.printResults()
+print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
 

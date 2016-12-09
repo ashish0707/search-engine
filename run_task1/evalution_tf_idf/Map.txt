@@ -1,0 +1,1 @@
+Mean_Avg_Precision = 0.186345214885
