@@ -66,18 +66,10 @@ for line in open('/Users/ashishbulchandani/PycharmProjects/final-project/cacm_st
     query_number += 1
 
 
-eval = Effectiveness()
-eval.setFilePaths("/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/Map.txt",
-                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/Mrr.txt",
-                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/p_at_k.txt",
-                  "/Users/ashishbulchandani/PycharmProjects/final-project/run_task3/evalution_tf_idf_stopping_stemmed/table_precision_recal.txt",
-                  "/Users/ashishbulchandani/PycharmProjects/final-project/cacm.rel.txt")
 
 begin = datetime.datetime.now()
 for query_number, query in query_dict.items():
     comparer.rank_and_store_documents(query, query_number)
-    eval.start_prog(comparer.sortedDocIds, query_number)
 
-print eval.printResults()
 print "Query Processed in ==> " + str(datetime.datetime.now() - begin)
 
